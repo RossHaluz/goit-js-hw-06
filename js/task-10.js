@@ -1,43 +1,43 @@
-const greatBtn = document.querySelector('[data-create]');
-const destroyBtn = document.querySelector('[data-destroy]');
-const controls = document.querySelector('#controls > input');
+const btnGreat = document.querySelector('[data-create]');
+const btnDestriy = document.querySelector('[data-destroy]');
+const controlsEl = document.querySelector('#controls > input');
 const boxesEl = document.querySelector('#boxes');
 
-greatBtn.addEventListener('click', createBoxes);
-destroyBtn.addEventListener('click', destroyBoxes);
-controls.addEventListener('input', getAmount);
-let totalAmount = 0;
+controlsEl.addEventListener('input', inputNumber);
+btnGreat.addEventListener('click', createBoxes);
+btnDestriy.addEventListener('click', destroyBoxes)
+let totalNumber = 0;
 
-function getAmount(even) {
-   totalAmount = even.currentTarget.value
-  console.log(`Total Count: ${totalAmount}`)
+function inputNumber(even) {
+  totalNumber = even.currentTarget.value;
+  console.log(totalNumber)
 }
 
 function createBoxes(amount) {
-  amount = totalAmount;
-  console.log(`creat: ${amount} boxes`)
+  amount = totalNumber;
+  console.log(`Total amount: ${amount}`)
+let total = 0
   for (let i = 1; i <= amount; i += 1){
-   let total = 0;
-    if (!boxesEl.firstChild) {
-      total = 0;
-    } else {
-      total += 10;
-    }
-
-    let greatElem = document.createElement('div');
-    greatElem.style.backgroundColor = getRandomHexColor();
-    greatElem.style.width = `${30+(i)*10}px`
-    greatElem.style.height = `${30+ (i)*10}px`
-    boxesEl.append(greatElem)
-    
+     if (!boxesEl.firstChild) {
+    total = 0;
+  } else {
+     total += 10;
   }
 
+  const newEl = document.createElement('div')
+  newEl.style.backgroundColor = getRandomHexColor()
+  newEl.style.width = `${30 + (i) * total}px`
+  newEl.style.height = `${30 + (i) * total}px`
+  boxesEl.append(newEl)
+  }
 }
 
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 }
 
-function destroyBoxes() {
+function destroyBoxes(){
   boxesEl.querySelectorAll('div').forEach(element => element.remove())
 }
