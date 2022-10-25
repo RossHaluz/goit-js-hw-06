@@ -7,11 +7,16 @@ function sendForm(even) {
 
     const {
         elements: { email, password }
-    } = even.currentTarget;
+  } = even.currentTarget;
+  const data = {
+   email: email.value,
+   password: password.value
+}
+
     if (email.value === "" || password.value === "") {
     return alert("Ведіть усі незаповненні поля!");
     }
     
-    console.log(`Login: ${email.value}, Password: ${password.value}`);
+    console.log(data);
   even.currentTarget.reset();
 }
