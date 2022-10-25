@@ -16,19 +16,16 @@ function inputNumber(even) {
 function createBoxes(amount) {
   amount = totalNumber;
   console.log(`Total amount: ${amount}`)
-let total = 0
+  const totalBoxes = boxesEl.children.length
+  console.log(totalBoxes)
+  let total = 30 + totalBoxes * 10;
   for (let i = 1; i <= amount; i += 1){
-     if (!boxesEl.firstChild) {
-    total = 0;
-  } else {
-     total += 10;
-  }
-
-  const newEl = document.createElement('div')
+    const newEl = document.createElement('div')
   newEl.style.backgroundColor = getRandomHexColor()
-  newEl.style.width = `${30 + total}px`
-  newEl.style.height = `${30 + total}px`
+  newEl.style.width = `${total}px`
+  newEl.style.height = `${total}px`
   boxesEl.append(newEl)
+    total += 10 
   }
 }
 
