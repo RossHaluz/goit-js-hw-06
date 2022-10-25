@@ -26,8 +26,8 @@ let total = 0
 
   const newEl = document.createElement('div')
   newEl.style.backgroundColor = getRandomHexColor()
-  newEl.style.width = `${30 + (i) * total}px`
-  newEl.style.height = `${30 + (i) * total}px`
+  newEl.style.width = `${30 + total}px`
+  newEl.style.height = `${30 + total}px`
   boxesEl.append(newEl)
   }
 }
