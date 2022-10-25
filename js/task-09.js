@@ -3,7 +3,8 @@ const textColor = document.querySelector('.color');
 btn.addEventListener('click', clickButton);
 
 function clickButton(even) {
-  document.body.style.backgroundColor = getRandomHexColor();
+  const color = getRandomHexColor()
+  document.body.setAttribute('style', `background-color: ${color}`)
   textColor.textContent = getRandomHexColor()
 }
 
